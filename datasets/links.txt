@@ -1,0 +1,7 @@
+PROCESSAMENTO DE IMAGENS
+http://www.ee.surrey.ac.uk/CVSSP/demos/chars74k/
+http://www.iapr-tc11.org/mediawiki/index.php/MSRA_Text_Detection_500_Database_(MSRA-TD500)
+
+MINERAÇÃO DE TEXTO
+http://www.statmt.org/europarl/
+https://drive.google.com/file/d/1nF-uRkStKZ3YyMbfGjC-APHpum6rtnXq/view?usp=drivesdk
