@@ -5,3 +5,4 @@ http://www.iapr-tc11.org/mediawiki/index.php/MSRA_Text_Detection_500_Database_(M
 MINERAÇÃO DE TEXTO
 http://www.statmt.org/europarl/
 https://drive.google.com/file/d/1nF-uRkStKZ3YyMbfGjC-APHpum6rtnXq/view?usp=drivesdk
+http://www.manythings.org/anki/por-eng.zip
