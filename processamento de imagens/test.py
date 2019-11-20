@@ -44,6 +44,8 @@ def getLinesFromImage(image, kernel1, kernel2, ctr_ordering):
     gray = cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
     #binary
     ret,thresh = cv2.threshold(gray,150,255,cv2.THRESH_BINARY_INV)
+    # cv2.imshow('gray', thresh)
+    # cv2.waitKey(0)
 
     #dilation
     kernel = np.ones((kernel1,kernel2), np.uint8)
@@ -67,7 +69,7 @@ def getLinesFromImage(image, kernel1, kernel2, ctr_ordering):
         lines.append(roi)
         i+=1
         cv2.rectangle(img_copy,(x,y),( x + w, y + h ),(90,0,255),2)
-        draw_contour_order(img_copy, ctr, i)
+        # draw_contour_order(img_copy, ctr, i)
     cv2.imshow('orig',img_copy)
     cv2.waitKey(0)
     return lines
@@ -101,25 +103,29 @@ def getWordsFromLine(image, kernel1, kernel2, ctr_ordering):
 
         # Getting ROI
         roi = image[y:y+h, x:x+w]
-        resized = cv2.resize(roi, (100,50))
-        words.append(resized)
+        # resized = cv2.resize(roi, (100,50))
+        words.append(roi)
         i+=1
-        # cv2.rectangle(image,(x,y),( x + w, y + h ),(90,0,255),2)
-        # draw_contour(image, ctr, i)
+        cv2.rectangle(image,(x,y),( x + w, y + h ),(90,0,255),2)
+        # draw_contour_order(image, ctr, i)
     return words
     
 #import image
-image = cv2.imread('image_processing/test_images/IAM/a01-000u.png')
-image = cv2.resize(image, (900,900))
+image = cv2.imread('image_processing/test_images/IAM/a01-003.png')
+# image = cv2.resize(image, (1333,300))
+image = cv2.resize(image,(720,1240))
 img_copy = image.copy()  
+cv2.imshow('image', img_copy)
+cv2.waitKey(0)
 lines = getLinesFromImage(img_copy, 2, 50,'top-to-bottom')
 print("Showing Lines")
 for line in lines:
     # cv2.imshow('line', line)
     # cv2.waitKey(0)
-    words = getWordsFromLine(line, 3, 5,'left-to-right')
+    # print(pytesseract.image_to_string(line))
+    words = getWordsFromLine(line, 3, 15,'left-to-right')
     for word in words:
         print(pytesseract.image_to_string(word))
-        cv2.imshow('word',word)
-        cv2.waitKey(0)
+        # cv2.imshow('word',word)
+        # cv2.waitKey(0)
 
